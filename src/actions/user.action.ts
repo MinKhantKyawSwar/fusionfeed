@@ -47,7 +47,7 @@ export async function getUserByClerkId(clerkId: string) {
                 select: {
                     followers: true,
                     following: true,
-                    posts: true
+                    posts: true 
                 }
             }
         }
@@ -58,4 +58,15 @@ export async function getUserByClerkId(clerkId: string) {
         console.log("Error in getUserByClerkId", error);
     }
 
+}
+
+export async function getDbUserId(){
+    const {userId: clerkId} = await auth();
+    if(!clerkId) throw new Error("Unauthorized");
+
+    const user = await getUserByClerkId(clerkId);
+
+    if(!user) throw new Error("User not found");
+
+    return user.id;
 }
