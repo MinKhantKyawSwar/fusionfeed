@@ -5,7 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
-
+import {Toaster} from "react-hot-toast";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -39,6 +39,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div className="min-h-screen">
+            <Toaster/>
               <Navbar />
               <main className="py-8">
                 <div className="max-x-7xl px-4 mx-auto">
